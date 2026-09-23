@@ -13,7 +13,7 @@ source:
   sha256: bcb526586800362da63a152bd9a2a2ff35e739a2a15d3ff40777f94062c3abe9
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv
 
@@ -31,7 +31,9 @@ tests:
       imports:
         - flaml
       pip_check: true
-      python_version: ${{ python_min }}.*
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
   - files:
       source:
         - test/test_conda_distribution.py
